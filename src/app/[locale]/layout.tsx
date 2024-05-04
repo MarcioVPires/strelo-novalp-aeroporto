@@ -1,9 +1,11 @@
-import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import { dir } from 'i18next';
 import i18nConfig from '@/i18nConfig';
+import { ThemeProvider } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import theme from '../theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +27,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -20,6 +20,8 @@
 .DS_Store
 *.pem
 /locales
+/backup
+*.backup
 
 # debug
 npm-debug.log*

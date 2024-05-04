@@ -1,101 +1,14 @@
-import Image from 'next/image';
-import styles from './page.module.css';
 import initTranslations from '@/i18n';
 import TranslationsProvider from '../contexts/TranslationsProvider';
-import LanguageChanger from '../components/LanguageChanger';
+import { Container } from '@mui/material';
 
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const i18nNamespaces = ['home'];
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
   return (
     <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            {t('first_message')}&nbsp;
-            <code className={styles.code}>src/app/page.tsx</code>
-          </p>
-
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-          <LanguageChanger />
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>{t('docs_message')}</p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              {t('learn')} <span>-&gt;</span>
-            </h2>
-            <p>{t('learn_message')}</p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>{t('template_message')}</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>{t('deploy_message')}</p>
-          </a>
-        </div>
+      <main>
+        <Container></Container>
       </main>
     </TranslationsProvider>
   );
