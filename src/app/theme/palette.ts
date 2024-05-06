@@ -1,73 +1,37 @@
 interface ThemePalette {
-  info: { main: string };
-  success: { main: string };
-  warning: { main: string };
-  error: { main: string };
-  primary: {
-    main: string;
-    alt: string;
-  };
-  headline: {
-    light: string;
-    dark: string;
-  };
-  subtitle: {
-    light: string;
-    dark: string;
-  };
-  background: {
-    tag: string;
-    darktag: string;
-  };
-  gradient: {
-    button: string;
-    titles: string;
-    lightcard: string;
-    darkcard: string;
-  };
-  divider: string;
-  action: any;
+  primary: { main: string };
+  secondary: { main: string };
+  lightHeadline: { main: string };
+  darkHeadline: { main: string };
+  lightSubtitle: { main: string };
+  darkSubtitle: { main: string };
+  darkBackground: { main: string };
+  tagBackground: { main: string };
+  darkTagBackground: { main: string };
+  gradientbutton: { main: string };
+  gradienttitle: { main: string };
+  gradientLightCard: { main: string };
+  gradientDarkCard: { main: string };
+  divider: { main: string };
 }
 
 function pallete(themeMode: string) {
   const themePalettes: Record<string, ThemePalette> = {
     default: {
-      info: {
-        main: '#627FFF',
-      },
-      success: {
-        main: '#627FFF',
-      },
-      warning: {
-        main: '#627FFF',
-      },
-      error: {
-        main: '#627FFF',
-      },
-      primary: {
-        main: '#627FFF',
-        alt: '385DFF',
-      },
-      headline: {
-        light: '#FFFFFF',
-        dark: '#212636',
-      },
-      subtitle: {
-        light: '#667085',
-        dark: '#B3B9C6',
-      },
-      background: {
-        tag: '#EAEEFB',
-        darktag: '#DDE3FF',
-      },
-      gradient: {
-        button: 'linear-gradient(0deg, #5B7FFF 0%, #3637F5 100%)',
-        titles: 'linear-gradient(-90deg, #627FFF 0%, #FFFFFF 81%)',
-        lightcard: 'linear-gradient(0deg, #111D54 0%, #2A41A7 100%)',
-        darkcard: 'linear-gradient(-90deb, #010118 0%, #224699 100%)',
-      },
-      divider: '#FFFFFF',
-      action: {},
+      primary: { main: '#627FFF' },
+      secondary: { main: '#385DFF' },
+      lightHeadline: { main: '#FFFFFF' },
+      darkHeadline: { main: '#212636' },
+      lightSubtitle: { main: '#667085' },
+      darkSubtitle: { main: '#B3B9C6' },
+      darkBackground: { main: '#020919' },
+      tagBackground: { main: '#EAEEFB' },
+      darkTagBackground: { main: '#DDE3FF' },
+      gradientbutton: { main: 'linear-gradient(0deg, #5B7FFF 0%, #3637F5 100%)' },
+      gradienttitle: { main: 'linear-gradient(-90deg, #627FFF 0%, #FFFFFF 81%)' },
+      gradientLightCard: { main: 'linear-gradient(0deg, #111D54 0%, #2A41A7 100%)' },
+      gradientDarkCard: { main: 'linear-gradient(-90deg, #010118 0%, #224699 100%)' },
+      divider: { main: '#FFFFFF' },
     },
   };
 
