@@ -5,6 +5,10 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import i18nConfig from '@/i18nConfig';
 import { ChangeEvent } from 'react';
+import { SelectChangeEvent } from '@mui/material';
+import { Select, MenuItem, styled, Menu } from '@mui/material';
+import { BRIcon, USIcon, SPIcon, FRIcon } from '@/assets';
+import Image from 'next/image';
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -12,7 +16,7 @@ export default function LanguageChanger() {
   const router = useRouter();
   const currentPathname = usePathname();
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: SelectChangeEvent<string>) => {
     const newLocale = e.target.value;
 
     // set cookie for next-i18n-router
@@ -31,12 +35,42 @@ export default function LanguageChanger() {
     router.refresh();
   };
 
+  const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '.MuiOutlinedInput-notchedOutline': { border: 0 },
+    '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+      border: 0,
+    },
+    '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      border: 0,
+    },
+  }));
+
   return (
-    <select onChange={handleChange} value={currentLocale}>
-      <option value="pt">Portuguese</option>
-      <option value="en">English</option>
-      <option value="es">Spanish</option>
-      <option value="fr">Francês</option>
-    </select>
+    <Select
+      labelId="language-selector-label"
+      id="language-selector"
+      label="Age"
+      onChange={handleChange}
+      value={currentLocale}
+      sx={{ minWidth: 10 }}
+      variant="standard"
+      disableUnderline
+    >
+      <StyledMenuItem value="pt">
+        <Image src={BRIcon} alt="" />
+      </StyledMenuItem>
+      <StyledMenuItem value="en">
+        <Image src={USIcon} alt="" />
+      </StyledMenuItem>
+      <StyledMenuItem value="es">
+        <Image src={SPIcon} alt="" />
+      </StyledMenuItem>
+      <StyledMenuItem value="fr">
+        <Image src={FRIcon} alt="" />
+      </StyledMenuItem>
+    </Select>
   );
 }
