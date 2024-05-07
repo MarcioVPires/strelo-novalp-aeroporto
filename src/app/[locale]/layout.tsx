@@ -7,6 +7,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from '../theme';
 import TopBar from '../components/Topbar';
 import TranslationsProvider from '../contexts/TranslationsProvider';
+import { ModalProvider } from '../contexts/ModalStateProvider';
 import initTranslations from '@/i18n';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -34,9 +35,11 @@ export default async function RootLayout({
       <body className={inter.className}>
         <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <TopBar />
-            {children}
+            <ModalProvider>
+              <CssBaseline />
+              <TopBar />
+              {children}
+            </ModalProvider>
           </ThemeProvider>
         </TranslationsProvider>
       </body>

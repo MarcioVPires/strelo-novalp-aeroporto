@@ -21,6 +21,7 @@ function SingleMenuItem({ text, href }: { text: string; href: string }) {
 
 function NavigationItens() {
   const { t } = useTranslation();
+
   const [anchorEl, setAnchorEl] = useState<Array<null | HTMLElement>>(
     Array(menuSchema().length).fill(null)
   );

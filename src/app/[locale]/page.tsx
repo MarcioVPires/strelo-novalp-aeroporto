@@ -1,9 +1,12 @@
 import { Box } from '@mui/material';
+import ContactModal from '../components/ModalPopUp';
 
 export default async function Home() {
   return (
     <main>
-      <Box></Box>
+      <Box>
+        <ContactModal />
+      </Box>
     </main>
   );
 }
