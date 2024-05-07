@@ -1,4 +1,5 @@
-import { AppBar, Box, Toolbar, Container } from '@mui/material';
+import { Container } from '@mui/material';
+import { AppBar, Toolbar, Box } from './styles';
 import Image from 'next/image';
 import HideOnScroll from './HideOnScroll';
 import Navigation from './Navigation';
@@ -8,18 +9,16 @@ import { logoImg } from '@/assets';
 function TopBar() {
   return (
     <HideOnScroll>
-      <AppBar position="fixed">
-        <Container>
-          <Toolbar>
-            <Box flexGrow={1}>
-              <Box display="flex" flexDirection="row" alignItems="center" gap={0.5}>
-                <Image src={logoImg} alt="Strelo Logo" priority />
-              </Box>
-            </Box>
+      <AppBar color="darkBackground">
+        <Toolbar>
+          <Box>
+            <Image src={logoImg} alt="Strelo Logo" priority />
+          </Box>
+          <Box>
             <Navigation />
             <LanguageChanger />
-          </Toolbar>
-        </Container>
+          </Box>
+        </Toolbar>
       </AppBar>
     </HideOnScroll>
   );
