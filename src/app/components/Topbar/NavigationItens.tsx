@@ -1,6 +1,7 @@
 'use client';
 
 import { Menu, MenuItem, Link, Typography, Box } from '@mui/material';
+import ContactButton from '../ContanctButton';
 import menuSchema from './menuSchema';
 import { menuExpandIcon } from '@/assets';
 import Image from 'next/image';
@@ -71,6 +72,7 @@ function NavigationItens() {
             <SingleMenuItem key={index} text={menuItem.text} href={menuItem.href} />
           );
         })}
+        <ContactButton />
       </Box>
     </>
   );
