@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Link, Typography, Box } from '@mui/material';
 import { MenuItem, SubMenuItem } from './styles';
-import ContactButton from '../ContanctButton';
+import ContactButtonI18n from '../ContanctButtonI18n';
 import menuSchema from './menuSchema';
 import { menuExpandIcon } from '@/assets';
 import Image from 'next/image';
@@ -73,7 +73,7 @@ function NavigationItems() {
           )}
         </Box>
       ))}
-      <ContactButton />
+      <ContactButtonI18n />
     </Box>
   );
 }
