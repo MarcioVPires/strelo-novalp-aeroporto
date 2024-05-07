@@ -18,10 +18,6 @@ function HideOnScroll(props: HideOnScrollProps) {
       appear={true}
       direction="down"
       in={!trigger}
-      easing={{
-        enter: 'cubic-bezier(0, 1.5, .8, 1)',
-        exit: 'linear',
-      }}
       timeout={{ enter: 300, exit: 200 }}
       mountOnEnter
       unmountOnExit
