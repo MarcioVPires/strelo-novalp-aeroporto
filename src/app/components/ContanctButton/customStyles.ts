@@ -11,6 +11,7 @@ export const CustomBox = styled(Box)<CustomBoxProps>(({ height }) => ({
   alignItems: 'center',
   borderRadius: '0.5rem',
   padding: '0.5rem 1rem',
+  margin: '0 2rem 0 2.75rem',
   height: height ? `${height}rem` : '2.75rem',
   '&:hover': {
     cursor: 'pointer',

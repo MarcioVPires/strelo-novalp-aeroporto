@@ -1,6 +1,6 @@
-'use client';
-
-import { Menu, MenuItem, Link, Typography, Box } from '@mui/material';
+import React from 'react';
+import { Menu, Link, Typography, Box } from '@mui/material';
+import { MenuItem, SubMenuItem } from './styles';
 import ContactButton from '../ContanctButton';
 import menuSchema from './menuSchema';
 import { menuExpandIcon } from '@/assets';
@@ -8,20 +8,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function SingleMenuItem({ text, href }: { text: string; href: string }) {
-  console.log(href);
-  return (
-    <MenuItem>
-      <Link href={href} color="secondary" underline="none">
-        <Typography>{`${text}`}</Typography>
-      </Link>
-    </MenuItem>
-  );
-}
-
-function NavigationItens() {
+function NavigationItems() {
   const { t } = useTranslation();
-  const [anchorEl, setAnchorEl] = useState<Array<null | HTMLElement>>(
+
+  const [anchorEl, setAnchorEl] = useState<(HTMLElement | null)[]>(
     Array(menuSchema().length).fill(null)
   );
 
@@ -38,11 +28,11 @@ function NavigationItens() {
   };
 
   return (
-    <>
-      <Box sx={{ display: 'flex', alignItens: 'center', justifyContent: 'center' }}>
-        {menuSchema().map((menuItem, index) => {
-          return menuItem.list ? (
-            <Box key={index}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {menuSchema().map((menuItem, index) => (
+        <Box key={index}>
+          {menuItem.list ? (
+            <>
               <button
                 onClick={(event) => handleClick(index, event)}
                 style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
@@ -63,19 +53,29 @@ function NavigationItens() {
                 open={Boolean(anchorEl[index])}
                 onClose={() => handleClose(index)}
               >
-                {menuItem.list.map((item, subIndex) => {
-                  return <SingleMenuItem key={subIndex} text={item.text} href={item.href} />;
-                })}
+                {menuItem.list.map((item, subIndex) => (
+                  <SubMenuItem key={subIndex}>
+                    <Link href={item.href} underline="none" sx={{ color: 'inherit' }}>
+                      <Typography variant="description">{item.text}</Typography>
+                    </Link>
+                  </SubMenuItem>
+                ))}
               </Menu>
-            </Box>
+            </>
           ) : (
-            <SingleMenuItem key={index} text={menuItem.text} href={menuItem.href} />
-          );
-        })}
-        <ContactButton />
-      </Box>
-    </>
+            <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
+              <MenuItem key={index}>
+                <Link href={menuItem.href} underline="none" sx={{ color: 'inherit' }}>
+                  <Typography>{menuItem.text}</Typography>
+                </Link>
+              </MenuItem>
+            </button>
+          )}
+        </Box>
+      ))}
+      <ContactButton />
+    </Box>
   );
 }
 
-export default NavigationItens;
+export default NavigationItems;
