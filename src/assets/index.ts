@@ -11,6 +11,9 @@ import heroDashboard from './images/hero_dashboard.png';
 import btgPactualLogo from './images/btgLogo.svg';
 import aeroportoBahiaLogo from './images/aeroBahia.svg';
 import rioGaleaoLogo from './images/galeaoLogo.svg';
+import chipDevelopment from './icons/chipDevelopment.svg';
+import chipGlobal from './icons/chipGlobal.svg';
+import chipStrategy from './icons/chipStrategy.svg';
 
 export const logoImg = logo;
 export const mobileClosedIcon = hamburgerIcon;
@@ -25,3 +28,6 @@ export const heroDashboardImage = heroDashboard;
 export const btgLogo = btgPactualLogo;
 export const aeroBahiaLogo = aeroportoBahiaLogo;
 export const galeaoLogo = rioGaleaoLogo;
+export const chipDevelopmentIcon = chipDevelopment;
+export const chipGlobalIcon = chipGlobal;
+export const chipStrategyIcon = chipStrategy;
