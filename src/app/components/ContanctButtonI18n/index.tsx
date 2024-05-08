@@ -1,21 +1,22 @@
 'use client';
 
 import { CustomBox, CustomTypography } from './customStyles';
+import { useTranslation } from 'react-i18next';
 import { useModal } from '@/app/contexts/ModalStateProvider';
 
 type ContactButton = {
   height?: number;
-  text: string;
 };
 
-function ContactButton({ height, text }: ContactButton) {
+function ContactButtonI18n({ height }: ContactButton) {
+  const { t } = useTranslation();
   const { openModal } = useModal();
 
   return (
     <CustomBox height={height} onClick={openModal}>
-      <CustomTypography variant="button2">{text}</CustomTypography>
+      <CustomTypography variant="button2">{t('button:contact')}</CustomTypography>
     </CustomBox>
   );
 }
 
-export default ContactButton;
+export default ContactButtonI18n;
