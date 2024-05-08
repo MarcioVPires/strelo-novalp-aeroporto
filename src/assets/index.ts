@@ -14,6 +14,7 @@ import rioGaleaoLogo from './images/galeaoLogo.svg';
 import chipDevelopment from './icons/chipDevelopment.svg';
 import chipGlobal from './icons/chipGlobal.svg';
 import chipStrategy from './icons/chipStrategy.svg';
+import chatBot from './images/productChatBot.webp';
 
 export const logoImg = logo;
 export const mobileClosedIcon = hamburgerIcon;
@@ -31,3 +32,4 @@ export const galeaoLogo = rioGaleaoLogo;
 export const chipDevelopmentIcon = chipDevelopment;
 export const chipGlobalIcon = chipGlobal;
 export const chipStrategyIcon = chipStrategy;
+export const productChatBot = chatBot;

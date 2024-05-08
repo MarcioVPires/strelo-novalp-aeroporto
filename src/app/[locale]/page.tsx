@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import ContactModal from '../components/ModalPopUp';
-import { HeroSection, ServiceSection } from '@/app/sections';
+import { HeroSection, ServiceSection, ProductsSection } from '@/app/sections';
 
 export default async function Home() {
   return (
@@ -9,6 +9,7 @@ export default async function Home() {
         <ContactModal />
         <HeroSection />
         <ServiceSection />
+        <ProductsSection />
       </Box>
     </main>
   );
